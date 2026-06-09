@@ -46,7 +46,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer {SEUTOKEN}"
             },
             {
               "name": "accept",
@@ -95,7 +95,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -858,7 +858,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -908,7 +908,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -1170,7 +1170,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -1219,7 +1219,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -1465,7 +1465,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -1500,7 +1500,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -1732,7 +1732,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -1781,7 +1781,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -2013,7 +2013,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -2062,7 +2062,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -2294,7 +2294,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -2343,7 +2343,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -2575,7 +2575,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -2624,7 +2624,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -2856,7 +2856,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -2905,7 +2905,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -3137,7 +3137,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -3186,7 +3186,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -3418,7 +3418,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -3467,7 +3467,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -3699,7 +3699,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -3748,7 +3748,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -3980,7 +3980,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -4029,7 +4029,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -4276,7 +4276,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -4325,7 +4325,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -4542,7 +4542,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",
@@ -4591,7 +4591,7 @@
           "parameters": [
             {
               "name": "Authorization",
-              "value": "Bearer 6903ae5503a94334bf107a6c72a2a302d5ad097e62264d8bac7646d05b9dcd97ada54810aadb4aa295299f99b459be16"
+              "value": "Bearer  {SEU TOKEN}"
             },
             {
               "name": "accept",

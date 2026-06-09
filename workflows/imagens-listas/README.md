@@ -11,7 +11,7 @@ Este workflow monitora grupos/canais do Telegram, recebe fotos de listas de cont
 - **Leitura de imagens** usando GPT-4o-mini (visão)
 - **Extração inteligente** de nomes e telefones com regras complexas de DDD
 - **Parseamento** de tabelas Markdown geradas pela IA
-- **Envio automático** para o CRM ASPA (via Template + Journey)
+- **Envio automático** para o CRM (via Template + Journey)
 - **Organização no Google Drive** (pasta de processados e pasta de erros)
 - Suporte a **múltiplas listas** (31, 36, 43, 44, 45, 50, 29, 47, 48, 49, etc.)
 - Tratamento de erro robusto com múltiplos IFs e branches

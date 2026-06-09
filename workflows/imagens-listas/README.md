@@ -4,7 +4,7 @@ Workflow complexo de **extração automática de contatos** a partir de imagens 
 
 ## O que ele faz
 
-Este workflow monitora grupos/canais do Telegram, recebe fotos de listas de contatos, usa inteligência artificial para extrair nomes e telefones, formata os números corretamente e envia os contatos para o CRM ASPA. Além disso, organiza os arquivos processados no Google Drive (sucesso x erro).
+Este workflow monitora grupos/canais do Telegram, recebe fotos de listas de contatos, usa inteligência artificial para extrair nomes e telefones, formata os números corretamente e envia os contatos para o CRM. Além disso, organiza os arquivos processados no Google Drive (sucesso x erro).
 
 ## Principais funcionalidades
 

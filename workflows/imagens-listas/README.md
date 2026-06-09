@@ -13,7 +13,7 @@ Este workflow monitora grupos/canais do Telegram, recebe fotos de listas de cont
 - **Parseamento** de tabelas Markdown geradas pela IA
 - **Envio automático** para o CRM ASPA (via Template + Journey)
 - **Organização no Google Drive** (pasta de processados e pasta de erros)
-- Suporte a **múltiplas listas** (31, 36, 43, 44, 45, 50, 29, Andreia, Indalina, etc.)
+- Suporte a **múltiplas listas** (31, 36, 43, 44, 45, 50, 29, 47, 48, 49, etc.)
 - Tratamento de erro robusto com múltiplos IFs e branches
 
 ## Como funciona (fluxo geral)

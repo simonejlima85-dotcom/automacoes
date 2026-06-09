@@ -7,10 +7,7 @@
       },
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
-      "position": [
-        -1296,
-        -16
-      ],
+      "position": [-1296, -16],
       "id": "30c15f74-2199-4f56-853c-8abe2d058448",
       "name": "Loop Over Items"
     },
@@ -29,10 +26,7 @@
       },
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 2,
-      "position": [
-        944,
-        -768
-      ],
+      "position": [944, -768],
       "id": "30a4dce7-ee82-4ed6-b475-9224353f952d",
       "name": "Analyze image",
       "notes": "Configure sua credencial do OpenAI aqui"
@@ -65,10 +59,7 @@
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
-      "position": [
-        1280,
-        -528
-      ],
+      "position": [1280, -528],
       "id": "ea686311-08c3-47df-aae4-d4b3461afd36",
       "name": "HTTP Request",
       "onError": "continueRegularOutput",
@@ -97,10 +88,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [
-        1280,
-        -752
-      ],
+      "position": [1280, -752],
       "id": "1da4fd65-35ad-4fa1-a367-601ae8e0379d",
       "name": "Code in JavaScript",
       "onError": "continueRegularOutput"
@@ -133,10 +121,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
-      "position": [
-        1296,
-        -288
-      ],
+      "position": [1296, -288],
       "id": "7c9adfee-5639-42c5-9bee-c0cb959c5baa",
       "name": "HTTP Request1",
       "onError": "continueRegularOutput"
@@ -145,10 +130,7 @@ return outputs;
       "parameters": {},
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
-      "position": [
-        -848,
-        -16
-      ],
+      "position": [-848, -16],
       "id": "9cbac687-3b6b-4b57-80d8-5591c7eb235d",
       "name": "Limit"
     },
@@ -178,10 +160,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
-      "position": [
-        944,
-        -496
-      ],
+      "position": [944, -496],
       "id": "4e217ca5-f0e3-4c43-afce-d7fa4554358b",
       "name": "If"
     },
@@ -211,10 +190,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
-      "position": [
-        1296,
-        -64
-      ],
+      "position": [1296, -64],
       "id": "ac328a4a-abf7-4446-970a-8f4eb81c6806",
       "name": "If1"
     },
@@ -244,10 +220,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
-      "position": [
-        976,
-        -256
-      ],
+      "position": [976, -256],
       "id": "0d6efc95-b0a3-4f29-9b38-3b3a294b93b2",
       "name": "If2"
     },
@@ -257,10 +230,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
-      "position": [
-        -576,
-        -16
-      ],
+      "position": [-576, -16],
       "id": "c16249eb-abbb-492b-b43e-6ae7e97d7d45",
       "name": "Wait"
     },
@@ -273,10 +243,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.telegramTrigger",
       "typeVersion": 1.2,
-      "position": [
-        -1968,
-        -16
-      ],
+      "position": [-1968, -16],
       "id": "f0147b13-ccdf-4f49-976e-c21d3e43b094",
       "name": "Telegram Trigger",
       "notes": "Configure sua credencial do Telegram aqui"
@@ -289,10 +256,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
-      "position": [
-        -1744,
-        -16
-      ],
+      "position": [-1744, -16],
       "id": "9551d1d8-4f59-46be-bafc-97e092d81d1e",
       "name": "Get a file",
       "notes": "Configure sua credencial do Telegram aqui"
@@ -314,10 +278,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
-      "position": [
-        12608,
-        -1248
-      ],
+      "position": [12608, -1248],
       "id": "1c2c414c-2776-4fa5-a1fe-3bcd9f8aa911",
       "name": "Upload file",
       "notes": "Configure sua credencial do Google Drive e o ID da pasta aqui"
@@ -339,10 +300,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
-      "position": [
-        12608,
-        -1600
-      ],
+      "position": [12608, -1600],
       "id": "5760a214-bd9d-4922-a13a-8f696becb42b",
       "name": "Upload file1",
       "notes": "Configure sua credencial do Google Drive e o ID da pasta aqui"
@@ -363,10 +321,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
-      "position": [
-        -1520,
-        -16
-      ],
+      "position": [-1520, -16],
       "id": "ee8493f9-7aa9-4b40-b359-ab833033f3fd",
       "name": "Edit Fields"
     },
@@ -379,10 +334,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1.1,
-      "position": [
-        12112,
-        960
-      ],
+      "position": [12112, 960],
       "id": "4c84ea70-53ca-43a4-b4a2-a39df741cab3",
       "name": "Extract from File"
     },
@@ -394,10 +346,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
-      "position": [
-        976,
-        -64
-      ],
+      "position": [976, -64],
       "id": "3452021d-160c-45d7-a80c-c71742fa4d5a",
       "name": "Merge"
     },
@@ -409,10 +358,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
-      "position": [
-        1312,
-        160
-      ],
+      "position": [1312, 160],
       "id": "f7cfa345-ed65-46cd-a4f4-1fd9969f0e2c",
       "name": "Merge1"
     },
@@ -424,10 +370,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
-      "position": [
-        1008,
-        368
-      ],
+      "position": [1008, 368],
       "id": "35efbfe5-d4c4-4a02-ab2b-e3e7c67e89b8",
       "name": "Merge2"
     },
@@ -439,10 +382,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
-      "position": [
-        1024,
-        208
-      ],
+      "position": [1024, 208],
       "id": "5aa18868-f5c8-4ccd-a3c9-de11c819ebaf",
       "name": "Merge3"
     },
@@ -455,7 +395,7 @@ return outputs;
                 "options": {
                   "caseSensitive": true,
                   "leftValue": "",
-                  "typeValidation": "loose",
+                  "typeValidation": "strict",
                   "version": 3
                 },
                 "conditions": [
@@ -480,10 +420,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.4,
-      "position": [
-        -368,
-        -256
-      ],
+      "position": [-368, -256],
       "id": "267f598e-a67c-4ee6-9536-ff70616332ca",
       "name": "Switch",
       "notes": "Configure os Chat IDs das listas aqui"
@@ -497,16 +434,13 @@ return outputs;
           "value": "gpt-4o-mini",
           "mode": "list"
         },
-        "text": "Analise a imagem enviada e extraia todos os nomes e telefones principais (N\u00c3O considere telefones marcados como recado ou refer\u00eancia).\n\nRegras:\n1. A sa\u00edda deve estar em formato de tabela com cabe\u00e7alho: origem, nome, telefone\n\n2. A coluna \"origem\" deve ter sempre o valor fixo: 31.\n\n3. Nome: transcreva exatamente como aparece, sem abreviar.\nNome ser\u00e1 sempre um dos primeiros itens no cabe\u00e7alho das fotos\n\n4. Telefone: aplique as regras abaixo em ordem de prioridade hier\u00e1rquica (da mais alta para a mais baixa).  \n**Se houver conflito entre regras, sempre prevalece a de n\u00famero mais baixo.**\n\n### \ud83d\udccc Regras Telef\u00f4nicas (prioridade 1 a 16)\n\n1. **Regra m\u00e1xima**: Se o telefone j\u00e1 cont\u00e9m DDD expl\u00edcito, **utilize exatamente esse DDD** na formata\u00e7\u00e3o final N\u00e3o adicione nenhum outro DDD. Nenhuma outra regra pode substituir ou sobrescrever o DDD extra\u00eddo diretamente do n\u00famero.\n2. Remova todos os s\u00edmbolos do n\u00famero: **+**, **-**, **(**, **)**, e **espa\u00e7os**.\n3. **Nunca altere, corrija ou substitua o DDD vis\u00edvel no n\u00famero**, mesmo que ele pare\u00e7a contradizer a cidade ou CEP identificados.\n4. Se o n\u00famero estiver **sem DDD vis\u00edvel**, tente identificar a **cidade ou o CEP** presente na imagem.\n5. Se cidade ou CEP forem identificados, utilize o **DDD correspondente conforme tabela oficial brasileira** (ver tabela no final).\n6. Se **n\u00e3o houver DDD, nem cidade nem CEP**, **adicione o DDD 47**. Essa regra se em conflito com a 1 prevalece a 1 \n7. Sempre que n\u00e3o identificado o DDD adicionar o DDD 47\n8.  o numero nunca pode ter menos de 13 d\u00edgitos e nem mais de 13 d\u00edgitos\n9. Se o n\u00famero tiver **apenas 8 d\u00edgitos ap\u00f3s o DDD**, insira um \u201c9\u201d imediatamente ap\u00f3s o DDD. \n10. O n\u00famero final deve sempre estar formatado como:  \n   `55 + DDD (2 d\u00edgitos) + n\u00famero (9 d\u00edgitos)` \u2192 total **13 d\u00edgitos**\n11. Nunca omita o DDD nem o DDI (55) no n\u00famero final.\n12. Nunca altere os 8 \u00faltimos n\u00fameros.\n13. Qualquer outro numero de telefone que contenha observa\u00e7\u00f5es/ Campos  como (Filho, Pai, M\u00e3e, Filha, Namorada, Namorado, Esposo, Esposa, Amigo, Amiga,CEP) Descartar, n\u00e3o trazer na tabela. \n14. Outros campos que contenham qualquer outro numero onde n\u00e3o se encaixem na regra 14 DESCARTE. \n15. Fotos que contenham somente parte da palavra \"TELEFONE\" interprete como telefone Exemplos que referenciam a regra 14: \"one\" \"fone\" \"efone\". \n16. N\u00e3o considerar campos como CEP RG CPF como n\u00fameros de telefone\n> \ud83d\udccc Exemplo:  \n> N\u00famero original: (49) 99232-1234 \u2192 Resultado: **5549992321234**  \n> Mesmo que a cidade identificada seja Joinville (DDD 47), mantenha o DDD original (49) extra\u00eddo do n\u00famero, conforme a Regra 1.\n\n---\n\n5. S\u00f3 inclua linhas com n\u00famero v\u00e1lido (13 d\u00edgitos no total, conforme formato da Regra 8).\n\n6. Ao final, inclua uma **observa\u00e7ão estruturada**, informando:\n   - N\u00famero processado (sem formata\u00e7\u00e3o)\n   - Se o DDD foi extra\u00eddo diretamente do n\u00famero ou inferido\n   - Qual DDD foi utilizado e sua origem (ex: \u201cdiretamente do n\u00famero\u201d ou \u201ccidade identificada na imagem\u201d)\n\n---\n\n### \ud83d\udccc Tabela de DDD por Estado (Brasil)\n\n**Norte:**\n- Acre (AC): 68\n- Amap\u00e1 (AP): 96\n- Amazonas (AM): 92 (Manaus), 97 (Tef\u00e9, Coari)\n- Rond\u00f4nia (RO): 69\n- Roraima (RR): 95\n- Tocantins (TO): 63\n\n**Nordeste:**\n- Alagoas (AL): 82\n- Bahia (BA): 71 (Salvador), 73, 74, 75, 77\n- Cear\u00e1 (CE): 85 (Fortaleza), 88 (interior)\n- Maranh\u00e3o (MA): 98 (S\u00e3o Luís), 99 (Imperatriz)\n- Para\u00edba (PB): 83\n- Pernambuco (PE): 81 (Recife), 87\n- Piau\u00ed (PI): 86 (Teresina), 89\n- Rio Grande do Norte (RN): 84\n- Sergipe (SE): 79\n\n**Centro-Oeste:**\n- Distrito Federal (DF): 61\n- Goi\u00e1s (GO): 62 (Goi\u00e2nia), 64\n- Mato Grosso (MT): 65 (Cuiab\u00e1), 66\n- Mato Grosso do Sul (MS): 67\n\n**Sudeste:**\n- Esp\u00edrito Santo (ES): 27 (Vit\u00f3ria), 28\n- Minas Gerais (MG): 31 (BH), 32, 33, 34, 35, 37, 38\n- Rio de Janeiro (RJ): 21 (capital), 22, 24\n- S\u00e3o Paulo (SP): 11 (capital), 12, 13, 14, 15, 16, 17, 18, 19\n\n**Sul:**\n- Paran\u00e1 (PR): 41 (Curitiba), 42, 43, 44, 45, 46\n- Rio Grande do Sul (RS): 51 (Porto Alegre), 53, 54, 55\n- Santa Catarina (SC): 47 (Joinville/Blumenau), 48 (Florian\u00f3polis), 49 (Chapec\u00f3/Lages)",
+        "text": "Analise a imagem enviada e extraia todos os nomes e telefones principais (N\u00c3O considere telefones marcados como recado ou refer\u00eancia).\n\nRegras:\n1. A sa\u00edda deve estar em formato de tabela com cabe\u00e7alho: origem, nome, telefone\n\n2. A coluna \"origem\" deve ter sempre o valor fixo: 31.\n\n3. Nome: transcreva exatamente como aparece, sem abreviar.\nNome ser\u00e1 sempre um dos primeiros itens no cabe\u00e7alho das fotos\n\n4. Telefone: aplique as regras abaixo em ordem de prioridade hier\u00e1rquica (da mais alta para a mais baixa).  \n**Se houver conflito entre regras, sempre prevalece a de n\u00famero mais baixo.**\n\n### \ud83d\udccc Regras Telef\u00f4nicas (prioridade 1 a 16)\n\n1. **Regra m\u00e1xima**: Se o telefone j\u00e1 cont\u00e9m DDD expl\u00edcito, **utilize exatamente esse DDD** na formata\u00e7\u00e3o final N\u00e3o adicione nenhum outro DDD. Nenhuma outra regra pode substituir ou sobrescrever o DDD extra\u00eddo diretamente do n\u00famero.\n2. Remova todos os s\u00edmbolos do n\u00famero: **+**, **-**, **(**, **)**, e **espa\u00e7os**.\n3. **Nunca altere, corrija ou substitua o DDD vis\u00edvel no n\u00famero**, mesmo que ele pare\u00e7a contradizer a cidade ou CEP identificados.\n4. Se o n\u00famero estiver **sem DDD vis\u00edvel**, tente identificar a **cidade ou o CEP** presente na imagem.\n5. Se cidade ou CEP forem identificados, utilize o **DDD correspondente conforme tabela oficial brasileira** (ver tabela no final).\n6. Se **n\u00e3o houver DDD, nem cidade nem CEP**, **adicione o DDD 47**. Essa regra se em conflito com a 1 prevalece a 1 \n7. Sempre que n\u00e3o identificado o DDD adicionar o DDD 47\n8.  o numero nunca pode ter menos de 13 d\u00edgitos e nem mais de 13 d\u00edgitos\n9. Se o n\u00famero tiver **apenas 8 d\u00edgitos ap\u00f3s o DDD**, insira um \u201c9\u201d imediatamente ap\u00f3s o DDD. \n10. O n\u00famero final deve sempre estar formatado como:  \n   `55 + DDD (2 d\u00edgitos) + n\u00famero (9 d\u00edgitos)` \u2192 total **13 d\u00edgitos**\n11. Nunca omita o DDD nem o DDI (55) no n\u00famero final.\n12. Nunca altere os 8 \u00faltimos n\u00fameros.\n13. Qualquer outro numero de telefone que contenha observa\u00e7\u00f5es/ Campos  como (Filho, Pai, M\u00e3e, Filha, Namorada, Namorado, Esposo, Esposa, Amigo, Amiga,CEP) Descartar, n\u00e3o trazer na tabela. \n14. Outros campos que contenham qualquer outro numero onde n\u00e3o se encaixem na regra 14 DESCARTE. \n15. Fotos que contenham somente parte da palavra \"TELEFONE\" interprete como telefone Exemplos que referenciam a regra 14: \"one\" \"fone\" \"efone\". \n16. N\u00e3o considerar campos como CEP RG CPF como n\u00fameros de telefone\n> \ud83d\udccc Exemplo:  \n> N\u00famero original: (49) 99232-1234 \u2192 Resultado: **5549992321234**  \n> Mesmo que a cidade identificada seja Joinville (DDD 47), mantenha o DDD original (49) extra\u00eddo do n\u00famero, conforme a Regra 1.\n\n---\n\n5. S\u00f3 inclua linhas com n\u00famero v\u00e1lido (13 d\u00edgitos no total, conforme formato da Regra 8).\n\n6. Ao final, inclua uma **observa\u00e7\u00e3o estruturada**, informando:\n   - N\u00famero processado (sem formata\u00e7\u00e3o)\n   - Se o DDD foi extra\u00eddo diretamente do n\u00famero ou inferido\n   - Qual DDD foi utilizado e sua origem (ex: \u201cdiretamente do n\u00famero\u201d ou \u201ccidade identificada na imagem\u201d)\n\n---\n\n### \ud83d\udccc Tabela de DDD por Estado (Brasil)\n\n**Norte:**\n- Acre (AC): 68\n- Amap\u00e1 (AP): 96\n- Amazonas (AM): 92 (Manaus), 97 (Tef\u00e9, Coari)\n- Rond\u00f4nia (RO): 69\n- Roraima (RR): 95\n- Tocantins (TO): 63\n\n**Nordeste:**\n- Alagoas (AL): 82\n- Bahia (BA): 71 (Salvador), 73, 74, 75, 77\n- Cear\u00e1 (CE): 85 (Fortaleza), 88 (interior)\n- Maranh\u00e3o (MA): 98 (S\u00e3o Luís), 99 (Imperatriz)\n- Para\u00edba (PB): 83\n- Pernambuco (PE): 81 (Recife), 87\n- Piau\u00ed (PI): 86 (Teresina), 89\n- Rio Grande do Norte (RN): 84\n- Sergipe (SE): 79\n\n**Centro-Oeste:**\n- Distrito Federal (DF): 61\n- Goi\u00e1s (GO): 62 (Goi\u00e2nia), 64\n- Mato Grosso (MT): 65 (Cuiab\u00e1), 66\n- Mato Grosso do Sul (MS): 67\n\n**Sudeste:**\n- Esp\u00edrito Santo (ES): 27 (Vit\u00f3ria), 28\n- Minas Gerais (MG): 31 (BH), 32, 33, 34, 35, 37, 38\n- Rio de Janeiro (RJ): 21 (capital), 22, 24\n- S\u00e3o Paulo (SP): 11 (capital), 12, 13, 14, 15, 16, 17, 18, 19\n\n**Sul:**\n- Paran\u00e1 (PR): 41 (Curitiba), 42, 43, 44, 45, 46\n- Rio Grande do Sul (RS): 51 (Porto Alegre), 53, 54, 55\n- Santa Catarina (SC): 47 (Joinville/Blumenau), 48 (Florian\u00f3polis), 49 (Chapec\u00f3/Lages)",
         "inputType": "base64",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 2,
-      "position": [
-        240,
-        -752
-      ],
+      "position": [240, -752],
       "id": "42feb491-2243-47de-afd4-de6d0f59b7b5",
       "name": "Analyze image1",
       "notes": "Configure sua credencial do OpenAI aqui"
@@ -539,10 +473,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
-      "position": [
-        528,
-        -560
-      ],
+      "position": [528, -560],
       "id": "f6c8965c-4575-4bb8-b9e8-eed6c8d8de5e",
       "name": "HTTP Request2",
       "onError": "continueRegularOutput"
@@ -643,10 +574,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [
-        496,
-        -752
-      ],
+      "position": [496, -752],
       "id": "f42e75a3-08a9-46be-9983-48375de55921",
       "name": "Code in JavaScript1",
       "onError": "continueRegularOutput"
@@ -679,10 +607,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
-      "position": [
-        528,
-        -336
-      ],
+      "position": [528, -336],
       "id": "83b16bab-bee0-4658-bfbf-610bb77a32b9",
       "name": "HTTP Request3",
       "onError": "continueRegularOutput"
@@ -713,10 +638,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
-      "position": [
-        208,
-        -544
-      ],
+      "position": [208, -544],
       "id": "484bc778-8a79-40cf-89df-5be9a71e6a0d",
       "name": "If4"
     },
@@ -746,10 +668,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
-      "position": [
-        512,
-        -112
-      ],
+      "position": [512, -112],
       "id": "c8597f71-a20c-4692-86a1-89264edf7445",
       "name": "If5"
     },
@@ -779,10 +698,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
-      "position": [
-        192,
-        -320
-      ],
+      "position": [192, -320],
       "id": "ef661a4d-f02c-434f-be8d-cc5fe45cfef0",
       "name": "If6"
     },
@@ -794,10 +710,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
-      "position": [
-        224,
-        -16
-      ],
+      "position": [224, -16],
       "id": "cb57e4d5-b85f-4f89-8ef7-b509b927137b",
       "name": "Merge4"
     },
@@ -809,10 +722,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
-      "position": [
-        224,
-        176
-      ],
+      "position": [224, 176],
       "id": "a7bda500-8ed6-4c94-a638-1fda4ea78ea1",
       "name": "Merge5"
     },
@@ -824,10 +734,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
-      "position": [
-        208,
-        -176
-      ],
+      "position": [208, -176],
       "id": "5b562195-ef87-4896-b9e6-39cd95c5817d",
       "name": "Merge6"
     },
@@ -839,10 +746,7 @@ return outputs;
       },
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
-      "position": [
-        512,
-        144
-      ],
+      "position": [512, 144],
       "id": "b2d7ad4c-791c-41ad-945e-567b6bb56d77",
       "name": "Merge7"
     },
@@ -853,10 +757,7 @@ return outputs;
         "width": 784
       },
       "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        16,
-        -832
-      ],
+      "position": [16, -832],
       "typeVersion": 1,
       "id": "80ebf840-302e-4d88-a438-de5487a9c980",
       "name": "Sticky Note"
@@ -868,10 +769,7 @@ return outputs;
         "width": 752
       },
       "type": "n8n-nodes-base.stickyNote",
-      "position": [
-        848,
-        -832
-      ],
+      "position": [848, -832],
       "typeVersion": 1,
       "id": "1cb3f124-8b0c-4f9a-8ba0-27267af32869",
       "name": "Sticky Note1"
@@ -1063,7 +961,7 @@ return outputs;
             "index": 0
           }
         ]
-      ]
+      }
     },
     "Edit Fields": {
       "main": [

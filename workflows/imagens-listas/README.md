@@ -32,7 +32,7 @@ Este workflow monitora grupos/canais do Telegram, recebe fotos de listas de cont
 - n8n
 - OpenAI (GPT-4o-mini Vision)
 - Telegram Bot API
-- ASPA CRM (API)
+- Http request CRM (API)
 - Google Drive
 
 ## Como configurar (após importar)
@@ -44,9 +44,9 @@ Este workflow monitora grupos/canais do Telegram, recebe fotos de listas de cont
 2. **OpenAI**
    - Configure sua credencial do OpenAI
 
-3. **ASPA CRM**
-   - Substitua `{{ SEU_TOKEN_ASPA }}` pelo seu token Bearer
-   - Ajuste os `channel` e `template` conforme sua conta
+3. **CRM**
+   - Adicione sua url http
+   - Ajuste o json e os `channel` e `template` conforme sua conta
 
 4. **Google Drive**
    - Configure sua credencial

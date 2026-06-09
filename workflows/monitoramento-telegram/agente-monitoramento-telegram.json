@@ -116,7 +116,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Grupos autorizados\nconst ALLOWED_GROUPS = [\n  \"-1003399151939\",\n  \"-1003639653804\",\n  \"-1003897011882\",\n  \"-1003790401056\", //tecnisan\n  \"-1003557977974\", //Meu mdedico\n  \"-1003730859142\", //Sleep house\n  \"-1003767465562\", //Real Wood\n  \"-1003763211093\", //olasertech\n  \"-1003812744200\", //Bendita aldeia\n];\n// Captura segura\nconst chatId = String($json.message?.chat?.id || \"\");\nconst chatType = $json.message?.chat?.type || \"unknown\";\n\n// Valida\u00e7\u00e3o do grupo\nconst is_allowed_group =\n  chatType === \"private\" || ALLOWED_GROUPS.includes(chatId);\n\n// Define bloqueio\nconst blocked = !is_allowed_group;\n\nreturn [\n  {\n    ...$json,\n    chat_id: chatId,\n    chat_type: chatType,\n    is_allowed_group,\n    blocked,\n  }\n];"
+        "jsCode": "// Grupos autorizados\nconst ALLOWED_GROUPS = [\n  \"{{ SEU_CHAT_ID_GRUPO_1 }}\",\n  \"{{ SEU_CHAT_ID_GRUPO_2 }}\"\n];\n// Captura segura\nconst chatId = String($json.message?.chat?.id || \"\");\nconst chatType = $json.message?.chat?.type || \"unknown\";\n\n// Valida\u00e7\u00e3o do grupo\nconst is_allowed_group =\n  chatType === \"private\" || ALLOWED_GROUPS.includes(chatId);\n\n// Define bloqueio\nconst blocked = !is_allowed_group;\n\nreturn [\n  {\n    ...$json,\n    chat_id: chatId,\n    chat_type: chatType,\n    is_allowed_group,\n    blocked,\n  }\n];"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -190,13 +190,14 @@
     },
     {
       "parameters": {
-        "jsCode": "// Lista de pessoas que devem receber o alerta\nconst RECIPIENTS = [\n  { id: \"998531040\", role: \"Simone\" },\n  { id: \"8319488518\", role: \"Mayara\" }\n];\n\n// Cria um item para cada destinat\u00e1rio\nreturn RECIPIENTS.map(user => ({\n  ...$json,\n  chat_id: user.id,\n  recipient_role: user.role\n}));"
+        "jsCode": "// Lista de pessoas que devem receber o alerta\nconst RECIPIENTS = [\n  { id: \"{{ SEU_CHAT_ID_SIMONE }}\", role: \"Simone\" },\n  { id: \"{{ SEU_CHAT_ID_MAYARA }}\" , role: \"Mayara\" }\n];\n\n// Cria um item para cada destinat\u00e1rio\nreturn RECIPIENTS.map(user => ({\n  ...$json,\n  chat_id: user.id,\n  recipient_role: user.role\n}));"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [3232, -160],
       "id": "ebfe7db8-c733-4699-bc46-44bee7f3843c",
-      "name": "Code in JavaScript1"
+      "name": "Code in JavaScript1",
+      "notes": "Substitua pelos chat_ids reais das pessoas que devem receber os alertas"
     },
     {
       "parameters": {

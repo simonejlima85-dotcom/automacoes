@@ -48,32 +48,22 @@ Atualmente os workflows usam **DataTable** do n8n.
 - O primeiro workflow usa IA para classificar risco
 - O segundo usa IA para gerar resumos
 
-### 5. Destinatários dos alertas e resumos
-Nos nodes `Code in JavaScript1` de cada workflow, edite a lista `RECIPIENTS` com os chat_ids das pessoas que devem receber:
-- Alertas de risco (em tempo real)
-- Resumos diários
+### 5. Destinatários dos alertas e resumos (IMPORTANTE)
 
-Exemplo:
+Nos nodes `Code in JavaScript1` de cada workflow, você vai encontrar algo assim:
+
 ```js
 const RECIPIENTS = [
-  { id: "998531040", role: "Simone" },
-  { id: "8319488518", role: "Mayara" }
+  { id: "{{ SEU_CHAT_ID_SIMONE }}", role: "Simone" },
+  { id: "{{ SEU_CHAT_ID_MAYARA }}" , role: "Mayara" }
 ];
 ```
 
-## 📊 O que cada workflow faz (resumo)
+**Substitua** `{{ SEU_CHAT_ID_SIMONE }}` e `{{ SEU_CHAT_ID_MAYARA }}` pelos chat_ids reais das pessoas que devem receber os alertas e resumos.
 
-| Workflow                        | Tipo          | Frequência     | Função principal                              |
-|--------------------------------|---------------|------------------|--------------------------------------------------|
-| Agente de Monitoramento        | Tempo real    | Imediato         | Classifica risco + alerta + salva mensagem       |
-| Resumos de Grupos              | Agendado      | Todo dia 18h     | Gera resumo por grupo + envia para responsáveis |
-
-## 💡 Dicas de uso
-
-- Comece testando com poucos grupos na whitelist
-- Ajuste os termos de risco no node `Code in JavaScript` conforme a realidade dos seus clientes
-- O score de risco vai de 0 a 100 (quanto maior, mais grave)
-- Cancelamento explícito sempre gera alerta de alta prioridade
+Para descobrir o chat_id de uma pessoa:
+1. Envie uma mensagem para o seu bot
+2. Use o bot `@userinfobot` ou `@getidsbot`
 
 ---
 

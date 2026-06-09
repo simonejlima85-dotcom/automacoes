@@ -89,13 +89,14 @@
     },
     {
       "parameters": {
-        "jsCode": "// Lista de pessoas que devem receber o resumo/alerta\nconst RECIPIENTS = [\n  { id: \"998531040\", role: \"Simone\" },\n  { id: \"8319488518\", role: \"Mayara\" }\n];\n\nconst output = [];\n\nfor (const item of items) {\n  const data = item.json;\n  for (const user of RECIPIENTS) {\n    output.push({ json: { ...data, chat_id: user.id, recipient_role: user.role } });\n  }\n}\n\nreturn output;"
+        "jsCode": "// Lista de pessoas que devem receber o resumo/alerta\nconst RECIPIENTS = [\n  { id: \"{{ SEU_CHAT_ID_SIMONE }}\", role: \"Simone\" },\n  { id: \"{{ SEU_CHAT_ID_MAYARA }}\" , role: \"Mayara\" }\n];\n\nconst output = [];\n\nfor (const item of items) {\n  const data = item.json;\n  for (const user of RECIPIENTS) {\n    output.push({ json: { ...data, chat_id: user.id, recipient_role: user.role } });\n  }\n}\n\nreturn output;"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [896, -48],
       "id": "1b609fd0-688e-41c6-b440-abb30438c096",
-      "name": "Code in JavaScript1"
+      "name": "Code in JavaScript1",
+      "notes": "Substitua pelos chat_ids reais das pessoas que devem receber os resumos"
     },
     {
       "parameters": {

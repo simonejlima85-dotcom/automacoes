@@ -54,12 +54,12 @@ Nos nodes `Code in JavaScript1` de cada workflow, você vai encontrar algo assim
 
 ```js
 const RECIPIENTS = [
-  { id: "{{ SEU_CHAT_ID_SIMONE }}", role: "Simone" },
-  { id: "{{ SEU_CHAT_ID_MAYARA }}" , role: "Mayara" }
+  { id: "{{ SEU_CHAT_ID_1 }}", role: "Respons\u00e1vel 1" },
+  { id: "{{ SEU_CHAT_ID_2 }}" , role: "Respons\u00e1vel 2" }
 ];
 ```
 
-**Substitua** `{{ SEU_CHAT_ID_SIMONE }}` e `{{ SEU_CHAT_ID_MAYARA }}` pelos chat_ids reais das pessoas que devem receber os alertas e resumos.
+**Substitua** `{{ SEU_CHAT_ID_1 }}` e `{{ SEU_CHAT_ID_2 }}` pelos chat_ids reais das pessoas que devem receber os alertas e resumos.
 
 Para descobrir o chat_id de uma pessoa:
 1. Envie uma mensagem para o seu bot

@@ -89,7 +89,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Lista de pessoas que devem receber o resumo/alerta\nconst RECIPIENTS = [\n  { id: \"{{ SEU_CHAT_ID_SIMONE }}\", role: \"Simone\" },\n  { id: \"{{ SEU_CHAT_ID_MAYARA }}\" , role: \"Mayara\" }\n];\n\nconst output = [];\n\nfor (const item of items) {\n  const data = item.json;\n  for (const user of RECIPIENTS) {\n    output.push({ json: { ...data, chat_id: user.id, recipient_role: user.role } });\n  }\n}\n\nreturn output;"
+        "jsCode": "// Lista de pessoas que devem receber o resumo/alerta\nconst RECIPIENTS = [\n  { id: \"{{ SEU_CHAT_ID_1 }}\", role: \"Respons\u00e1vel 1\" },\n  { id: \"{{ SEU_CHAT_ID_2 }}\" , role: \"Respons\u00e1vel 2\" }\n];\n\nconst output = [];\n\nfor (const item of items) {\n  const data = item.json;\n  for (const user of RECIPIENTS) {\n    output.push({ json: { ...data, chat_id: user.id, recipient_role: user.role } });\n  }\n}\n\nreturn output;"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,

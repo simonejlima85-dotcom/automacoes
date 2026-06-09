@@ -190,7 +190,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Lista de pessoas que devem receber o alerta\nconst RECIPIENTS = [\n  { id: \"{{ SEU_CHAT_ID_SIMONE }}\", role: \"Simone\" },\n  { id: \"{{ SEU_CHAT_ID_MAYARA }}\" , role: \"Mayara\" }\n];\n\n// Cria um item para cada destinat\u00e1rio\nreturn RECIPIENTS.map(user => ({\n  ...$json,\n  chat_id: user.id,\n  recipient_role: user.role\n}));"
+        "jsCode": "// Lista de pessoas que devem receber o alerta\nconst RECIPIENTS = [\n  { id: \"{{ SEU_CHAT_ID_1 }}\", role: \"Respons\u00e1vel 1\" },\n  { id: \"{{ SEU_CHAT_ID_2 }}\" , role: \"Respons\u00e1vel 2\" }\n];\n\n// Cria um item para cada destinat\u00e1rio\nreturn RECIPIENTS.map(user => ({\n  ...$json,\n  chat_id: user.id,\n  recipient_role: user.role\n}));"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,

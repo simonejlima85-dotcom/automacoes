@@ -24,7 +24,7 @@ Este workflow monitora grupos/canais do Telegram, recebe fotos de listas de cont
 4. GPT-4o-mini analisa a imagem e extrai os dados seguindo regras rigorosas de telefone
 5. Code node parseia a tabela Markdown retornada pela IA
 6. Valida se teve sucesso
-7. Envia o contato para o ASPA CRM
+7. Envia o contato para o CRM
 8. Faz upload da imagem original para a pasta correta no Google Drive (sucesso ou erro)
 
 ## Tecnologias utilizadas

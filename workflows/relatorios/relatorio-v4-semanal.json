@@ -1,0 +1,341 @@
+{
+  "name": "Relatório V4 — Semanal",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtHour": 8
+            }
+          ]
+        }
+      },
+      "id": "d2910143-b129-4f40-a6a4-e33ac297a43b",
+      "name": "Toda Segunda 8h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -1696,
+        16
+      ]
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "{{ SUA_PLANILHA_ID_AQUI }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "{{ SUA_PLANILHA_ID_AQUI }}",
+          "mode": "id"
+        }
+      },
+      "id": "d6d4ecf5-5687-4af8-9cba-af69fd5d9828",
+      "name": "Buscar Clientes",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        -1472,
+        16
+      ],
+      "notes": "Planilha com colunas: cliente, email, meta_account_id, google_account_id, observacoes, ativo. Configure sua credencial do Google Sheets aqui."
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "dce19501-d74b-4c80-af08-ebc27c7b4e73",
+      "name": "Loop por Cliente",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -1248,
+        16
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://connectors.windsor.ai/facebook\n?api_key={{ $json['API Windsor'] }}\n&date_from={{ $now.minus({ days: 7 }).toFormat('yyyy-MM-dd') }}\n&date_to={{ $now.minus({ days: 1 }).toFormat('yyyy-MM-dd') }}\n&fields=campaign_name,ad_name,impressions,clicks,spend,ctr,actions_lead,actions,thumbnail_url&select_accounts={{ $json['meta id'] }}\n&client_id={{ $json.Client_ID }}",
+        "options": {}
+      },
+      "id": "8807c1a6-973b-4486-aee1-595a12299c90",
+      "name": "Windsor — Meta Ads",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -800,
+        -80
+      ],
+      "onError": "continueRegularOutput",
+      "notes": "Adicione WINDSOR_API_KEY nas variáveis de ambiente do n8n"
+    },
+    {
+      "parameters": {
+        "url": "=https://connectors.windsor.ai/google_ads?api_key={{ $json['API Windsor'] }}&date_from={{ $now.minus({ days: 7 }).toFormat('yyyy-MM-dd') }}&date_to={{ $now.minus({ days: 1 }).toFormat('yyyy-MM-dd') }}&fields=account_id,account_name,campaign,clicks,conversions,impressions,spend,ctr,cost_per_conversion,conversions_value&select_accounts={{ $json['google id'] }}&client_id={{ $json.Client_ID }}",
+        "options": {}
+      },
+      "id": "c1616a78-059e-453a-8574-c5f236050f3b",
+      "name": "Windsor — Google Ads",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        -800,
+        112
+      ],
+      "onError": "continueRegularOutput",
+      "notes": "Busca dados do Google Ads para o mesmo cliente"
+    },
+    {
+      "parameters": {
+        "jsCode": "// ===== CLIENTE =====\nconst clientName = $node[\"Dados principais\"].json[\"Client_ID\"] || 'Cliente';\n\n// ===== INPUT =====\nconst allItems = $input.all();\n\nlet metaAds = [];\nlet googleAds = [];\n\n// ===== SEPARAÇÃO INTELIGENTE =====\nfor (const item of allItems) {\n  if (item.json.data && Array.isArray(item.json.data)) {\n    item.json.data.forEach(entry => {\n\n      // META → tem ad_name\n      if (entry.ad_name) {\n        metaAds.push(entry);\n      }\n\n      // GOOGLE → não tem ad_name, mas tem campaign\n      else if (entry.campaign || entry.campaign_name) {\n        googleAds.push(entry);\n      }\n\n    });\n  }\n}\n\n// ===== META NORMALIZAÇÃO =====\nconst parsedMeta = metaAds.map(ad => {\n  const impressions = Number(ad.impressions) || 0;\n  const clicks = Number(ad.clicks) || 0;\n  const spend = Number(ad.spend) || 0;\n\n  let conversions = 0;\n\n  if (Array.isArray(ad.actions)) {\n    const msg = ad.actions.find(a =>\n      a.action_type === \"onsite_conversion.messaging_conversation_started_7d\"\n    );\n\n    if (msg) conversions = Number(msg.value);\n\n    if (!conversions) {\n      const alt = ad.actions.find(a =>\n        a.action_type === \"onsite_conversion.total_messaging_connection\"\n      );\n      conversions = alt ? Number(alt.value) : 0;\n    }\n  }\n\n  return {\n    source: 'Meta',\n    campaign: ad.campaign_name,\n    ad_name: ad.ad_name,\n    impressions,\n    clicks,\n    spend,\n    conversions,\n    ctr: impressions > 0 ? clicks / impressions : 0,\n    cpc: clicks > 0 ? spend / clicks : 0,\n    thumbnail_url: ad.thumbnail_url || ''\n  };\n});\n\n// ===== GOOGLE NORMALIZAÇÃO =====\nconst parsedGoogle = googleAds.map(g => {\n  const impressions = Number(g.impressions) || 0;\n  const clicks = Number(g.clicks) || 0;\n  const spend = Number(g.spend) || 0;\n  const conversions = Number(g.conversions) || 0;\n\n  return {\n    source: 'Google',\n    campaign: g.campaign || g.campaign_name,\n    ad_name: g.campaign || g.campaign_name,\n    impressions,\n    clicks,\n    spend,\n    conversions,\n    ctr: impressions > 0 ? clicks / impressions : 0,\n    cpc: clicks > 0 ? spend / clicks : 0\n  };\n});\n\n// ===== JUNTAR =====\nconst allAds = [...parsedMeta, ...parsedGoogle];\n\n// ===== RESUMO =====\nlet total = {\n  spend: 0,\n  clicks: 0,\n  impressions: 0,\n  conversions: 0\n};\n\nallAds.forEach(ad => {\n  total.spend += ad.spend;\n  total.clicks += ad.clicks;\n  total.impressions += ad.impressions;\n  total.conversions += ad.conversions;\n});\n\nconst summary = {\n  spend: total.spend,\n  clicks: total.clicks,\n  impressions: total.impressions,\n  conversions: total.conversions,\n  ctr: total.impressions > 0 ? total.clicks / total.impressions : 0,\n  cpc: total.clicks > 0 ? total.spend / total.clicks : 0,\n  cpa: total.conversions > 0 ? total.spend / total.conversions : 0\n};\n\n// ===== CAMPANHAS =====\nconst campaignsMap = {};\n\nallAds.forEach(ad => {\n  if (!campaignsMap[ad.campaign]) {\n    campaignsMap[ad.campaign] = {\n      name: ad.campaign,\n      source: ad.source,\n      spend: 0,\n      clicks: 0,\n      impressions: 0,\n      conversions: 0\n    };\n  }\n\n  const c = campaignsMap[ad.campaign];\n\n  c.spend += ad.spend;\n  c.clicks += ad.clicks;\n  c.impressions += ad.impressions;\n  c.conversions += ad.conversions;\n});\n\nconst campaigns = Object.values(campaignsMap).map(c => ({\n  ...c,\n  ctr: c.impressions > 0 ? c.clicks / c.impressions : 0,\n  cpc: c.clicks > 0 ? c.spend / c.clicks : 0,\n  cpa: c.conversions > 0 ? c.spend / c.conversions : 0\n}));\n\n// ===== TOP CRIATIVOS (SÓ META) =====\nconst topAds = parsedMeta\n  .sort((a, b) => b.spend - a.spend)\n  .slice(0, 3);\n\n// ===== OUTPUT =====\nreturn [{\n  json: {\n    clientName,\n    summary,\n    campaigns,\n    topAds\n  }\n}];"
+      },
+      "id": "444f7a51-7b19-4af9-8f4f-0ca8a8e1d826",
+      "name": "Montar JSON + URL",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -384,
+        16
+      ],
+      "notes": "Troque SEU_DOMINIO pelo endereço do serviço no Easypanel"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $('Dados principais').item.json.email }}",
+        "subject": "=\ud83d\udcca Relatório de Performance \u2014 {{ $('Dados principais').first().json.Client_ID }}",
+        "message": "={{ $json.html }}",
+        "options": {}
+      },
+      "id": "6bdba57c-c04b-41ba-b506-7c0d69584e9e",
+      "name": "Enviar por Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        48,
+        16
+      ],
+      "webhookId": "c07c3d75-cc79-4437-8f41-fd35c0fb5736",
+      "notes": "Configure sua credencial do Gmail aqui"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "97171ec5-3b87-4601-9c96-4f00ffe3744f",
+              "name": "email",
+              "value": "={{ $json.Email }}",
+              "type": "string"
+            },
+            {
+              "id": "84b48c19-dfb7-447b-933a-3ac1c5e9a6e9",
+              "name": "API Gemini",
+              "value": "={{ $json['API Gemini'] }}",
+              "type": "string"
+            },
+            {
+              "id": "abba8b53-8382-4ed3-abd1-a50d2c3683d7",
+              "name": "API Windsor",
+              "value": "={{ $json['token windsor'] }}",
+              "type": "string"
+            },
+            {
+              "id": "5748b895-8aa7-405c-ba7c-8b837ba4b1a4",
+              "name": "Client_ID",
+              "value": "={{ $json.Cliente }}",
+              "type": "string"
+            },
+            {
+              "id": "3a77fd0f-9ce1-425e-99fb-e4dd98817e6a",
+              "name": "meta id",
+              "value": "={{ $json['ID do Meta Ads'] }}",
+              "type": "string"
+            },
+            {
+              "id": "8e16d22c-bd68-4756-85f2-1dce7d76b25e",
+              "name": "google id",
+              "value": "={{ $json['ID do Google Ads'] }}",
+              "type": "string"
+            },
+            {
+              "id": "fae5a237-0577-4d63-b88d-cc5fa930723d",
+              "name": "Linha",
+              "value": "={{ $json.row_number }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1024,
+        16
+      ],
+      "id": "27913c1c-7af5-46a6-8888-a515e55a15e0",
+      "name": "Dados principais"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -576,
+        16
+      ],
+      "id": "10a4fb34-23c3-44a2-9fce-68349e71a5b0",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "jsCode": "const { clientName, summary, campaigns, topAds } = items[0].json;\n\n// ===== PERÍODO =====\nconst today = new Date();\nconst end = new Date();\nend.setDate(today.getDate() - 1);\n\nconst start = new Date();\nstart.setDate(today.getDate() - 7);\n\nconst format = (d) =>\n  d.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });\n\nconst period = `${format(start)} - ${format(end)}`;\n\n// ===== HELPERS =====\nconst safe = (v) => Number(v) || 0;\nconst money = (v) => `R$ ${safe(v).toFixed(2)}`;\nconst pct = (v) => `${(safe(v) * 100).toFixed(2)}%`;\n\nlet html = `\n<table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"font-family: Arial; background:#f4f4f4; padding:20px;\">\n<tr>\n<td align=\"center\">\n\n<table width=\"600\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#ffffff; border-radius:8px;\">\n\n<!-- HEADER -->\n<tr>\n<td style=\"background:#E30613; color:white; padding:20px;\">\n  <h2 style=\"margin:0;\">Relatório de Performance</h2>\n  <p style=\"margin:5px 0 0 0;\">\n    ${clientName}<br>\n    Período: ${period}\n  </p>\n</td>\n</tr>\n\n<!-- RESUMO -->\n<tr>\n<td style=\"padding:20px;\">\n  <h3>Resumo</h3>\n\n  <table width=\"100%\">\n    <tr>\n      <td><b>Investimento:</b> ${money(summary.spend)}</td>\n      <td><b>Cliques:</b> ${summary.clicks}</td>\n    </tr>\n    <tr>\n      <td><b>Conversões:</b> ${summary.conversions}</td>\n      <td><b>CTR:</b> ${pct(summary.ctr)}</td>\n    </tr>\n    <tr>\n      <td><b>CPC:</b> ${money(summary.cpc)}</td>\n      <td><b>CPA:</b> ${summary.conversions > 0 ? money(summary.cpa) : '-'}</td>\n    </tr>\n  </table>\n</td>\n</tr>\n\n<!-- CAMPANHAS -->\n<tr>\n<td style=\"padding:20px; border-top:1px solid #eee;\">\n  <h3>Campanhas</h3>\n`;\n\ncampaigns.forEach(c => {\n  html += `\n  <div style=\"margin-bottom:12px;\">\n    <strong>${c.name}</strong> (${c.source})<br>\n    Investimento: ${money(c.spend)} |\n    Cliques: ${c.clicks} |\n    Conversões: ${c.conversions} |\n    CTR: ${pct(c.ctr)} |\n    CPA: ${c.conversions > 0 ? money(c.cpa) : '-'}\n  </div>\n  `;\n});\n\nhtml += `\n</td>\n</tr>\n\n<!-- CRIATIVOS -->\n<tr>\n<td style=\"padding:20px; border-top:1px solid #eee;\">\n  <h3>Top Criativos (Meta Ads)</h3>\n\n  <table width=\"100%\">\n    <tr>\n`;\n\ntopAds.forEach(ad => {\n  html += `\n  <td width=\"33%\" style=\"text-align:center; padding:5px;\">\n    <img src=\"${ad.thumbnail_url}\" width=\"100%\" style=\"border-radius:6px;\"><br><br>\n    <strong style=\"font-size:13px;\">${ad.ad_name}</strong><br>\n    <span style=\"font-size:12px;\">\n      ${money(ad.spend)}<br>\n      ${ad.clicks} cliques<br>\n      ${ad.conversions} conv<br>\n      ${pct(ad.ctr)}\n    </span>\n  </td>\n  `;\n});\n\nhtml += `\n    </tr>\n  </table>\n</td>\n</tr>\n\n</table>\n</td>\n</tr>\n</table>\n`;\n\nreturn [{ json: { html } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -176,
+        16
+      ],
+      "id": "8d63ce19-e6f1-4863-9c0c-6344390781b2",
+      "name": "CODE NODE (HTML REPORT)"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Toda Segunda 8h": {
+      "main": [
+        [
+          {
+            "node": "Buscar Clientes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar Clientes": {
+      "main": [
+        [
+          {
+            "node": "Loop por Cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop por Cliente": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Dados principais",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Windsor — Meta Ads": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Montar JSON + URL": {
+      "main": [
+        [
+          {
+            "node": "CODE NODE (HTML REPORT)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar por Gmail": {
+      "main": [
+        [
+          {
+            "node": "Loop por Cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Windsor — Google Ads": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Dados principais": {
+      "main": [
+        [
+          {
+            "node": "Windsor — Meta Ads",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Windsor — Google Ads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Montar JSON + URL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CODE NODE (HTML REPORT)": {
+      "main": [
+        [
+          {
+            "node": "Enviar por Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "b2efbdca-769f-466f-852c-6a47eeaf7506",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a1870424948f4eb1e0ed058621d365d311991eb2107ef92cb162d554a26f270b"
+  },
+  "nodeGroups": [],
+  "id": "K3eGYUtuZYawEnqu",
+  "tags": []
+}
